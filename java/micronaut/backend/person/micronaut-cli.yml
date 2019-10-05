@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: org.talend.kickoff.mn.person
+---
+testFramework: junit
+sourceLanguage: java
