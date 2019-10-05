@@ -1,16 +1,15 @@
 # Micronaut version of the comicbook application.
 
-  * [Step 1 : Install Micronaut CLI and create the project](#step-1---install-micronaut-cli-and-create-the-project)
-    + [Install Micronaut](#install-micronaut)
-    + [Initialise the project](#initialise-the-project)
-    + [Build the project](#build-the-project)
-    + [Run as java application](#run-as-java-application)
-    + [Build and run a native application](#build-and-run-a-native-application)
-
 
 ## Step 1 : Install Micronaut CLI and create the project
 
 We install Micronaut CLI version 1.2.0 with SDKman. This application is to initiate project like the springboot initializr or the maven archetypes.
+
+* [Install Micronaut](#install-micronaut)
+* [Initialise the project](#initialise-the-project)
+* [Build the project](#build-the-project)
+* [Run as java application](#run-as-java-application)
+* [Build and run a native application](#build-and-run-a-native-application)
 
 ### Install Micronaut
 
