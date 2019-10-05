@@ -23,6 +23,7 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
+.idea/**/codeStyles/
 
 # Gradle
 .idea/**/gradle.xml
@@ -90,3 +91,5 @@ modules.xml
 .idea/**/markdown-navigator/
 
 # End of https://www.gitignore.io/api/intellij
+
+.idea/.gitignore
