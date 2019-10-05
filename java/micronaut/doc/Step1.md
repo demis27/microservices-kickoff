@@ -1,5 +1,13 @@
 # Micronaut version of the comicbook application.
 
+  * [Step 1 : Install Micronaut CLI and create the project](#step-1---install-micronaut-cli-and-create-the-project)
+    + [Install Micronaut](#install-micronaut)
+    + [Initialise the project](#initialise-the-project)
+    + [Build the project](#build-the-project)
+    + [Run as java application](#run-as-java-application)
+    + [Build and run a native application](#build-and-run-a-native-application)
+
+
 ## Step 1 : Install Micronaut CLI and create the project
 
 We install Micronaut CLI version 1.2.0 with SDKman. This application is to initiate project like the springboot initializr or the maven archetypes.
@@ -79,4 +87,55 @@ And substratevm dependency was added by the feature graal-native-image:
       <artifactId>svm</artifactId>
       <scope>provided</scope>
     </dependency>
+```
+
+### Build the project 
+
+Build by Intellij or by maven:
+
+```shell
+$ cd java/micronaut/backend/
+$ mvn clean install
+```
+
+### Run as java application
+
+Run a class Application (for example the Application in maven module api) or run in a shell:
+
+```shell
+$ cd api
+$ java -jar target/api-0.1.jar
+```
+### Build and run a native application
+
+Build a native image with GraalVM:
+* Use GraalVM as current JVM: 
+```shell 
+$ sdk use java 19.2.0-grl
+```
+* Install the GraalVM tool, native-image, that generate native image from a jar: 
+```shell
+$ gu install native-image
+``` 
+* Create a native image: 
+```shell
+$ native-image --no-server -cp target/api-0.1.jar
+``` 
+
+if you have the following error:
+
+```shell
+Error: Basic header file missing (<zlib.h>). Make sure headers are available on your system.
+Error: Use -H:+ReportExceptionStackTraces to print stacktrace of underlying exception
+Error: Image build request failed with exit status 1
+```
+
+Add the library zlib: 
+```shell
+$ sudo apt-get install zlib1g-dev
+```
+
+Now you can run the application: 
+```shell
+$ ./api
 ```
