@@ -2,7 +2,7 @@
 
 ## Step 0 : Requirements and initialise mongodb
 
-This step contains requirements and somme initialisation for the project.
+This step contains requirements and some initialisation for the project.
 
 * [Requirement](#requirement)
 * [Use Mongodb as a docker image](#use-mongodb-as-a-docker-image)
