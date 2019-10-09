@@ -8,7 +8,7 @@ In this step we initiate the Pojo and a an repository for this Pojo using MongoD
 $ git checkout step3
 ```
 
-We add a test class to test the repository with Flapdoodle for Mongo and add a configuration class to overide the name of the database.
+We add a test class to test the repository with Flapdoodle for Mongo and add a configuration class to overide the name of the database. 
 
 * [The Pojo](#the-pojo)
 * [The repository](#the-repository)
@@ -32,7 +32,7 @@ public class Comicbook {
 
 ### The repository
 
-A minimal repository for comicbook. We use a reactive MongoDB API and implement a simple list method and other methods.
+A minimal repository for comicbook. We use a reactive MongoDB API and implement a simple list method.
 
 ```java
 @Singleton
@@ -64,7 +64,7 @@ public class ComicbookRepository {
 
 ### The repository tests
 
-And we add a test class
+And we add a test class to test this list method.
 
 ```java
 @MicronautTest
@@ -74,23 +74,8 @@ class ComicbookRepositoryTest {
 
     @Inject ComicbookRepository repository;
 
-    @AfterEach
-    void removeAllData() throws Exception {
-        repository.list().blockingGet().stream().forEach(comicbook -> repository.delete(comicbook.getId()));
-    }
-
     @Test void list() throws Exception {
         assertEquals(0, repository.list().blockingGet().size());
-        create("Amazing Spider-Man");
-        assertEquals(1, repository.list().blockingGet().size());
-    }
-
-    [...]
-
-    private Comicbook create(String name) {
-        Comicbook comicbook = new Comicbook();
-        comicbook.setName(name);
-        return repository.create(comicbook).blockingGet();
     }
 }
 ```
@@ -120,4 +105,26 @@ If you want to change the configuration add in your `application.yml` values for
 ```yaml
 kickoff:
   databaseName: kickoff
+```
+
+### Exercice
+
+Now you can complete the repository and repository test classes for other methods like:
+* Create a comicbook
+* Get a comicbook
+* Update a comicbook
+* Delete a comicbook
+
+### A solution
+
+Checkout the branch `step2-final` to have a solution.
+
+```shell
+$ git checkout step2-final
+```
+
+And checkout `step3-init` for the next step.
+
+```shell
+$ git checkout step3-init
 ```
