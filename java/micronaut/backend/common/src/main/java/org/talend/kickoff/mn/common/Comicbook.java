@@ -1,7 +1,10 @@
 package org.talend.kickoff.mn.common;
 
+import io.micronaut.core.annotation.Introspected;
+
 import java.util.Objects;
 
+@Introspected
 public class Comicbook {
 
     private String id;
