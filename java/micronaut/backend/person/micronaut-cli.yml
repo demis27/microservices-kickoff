@@ -1,5 +1,5 @@
 profile: service
-defaultPackage: org.talend.kickoff.mn.person
+defaultPackage: org.demis27.kickoff.mn.person
 ---
 testFramework: junit
 sourceLanguage: java

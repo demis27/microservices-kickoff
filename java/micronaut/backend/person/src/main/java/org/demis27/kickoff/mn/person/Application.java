@@ -1,4 +1,4 @@
-package org.talend.kickoff.mn.comicbook;
+package org.demis27.kickoff.mn.person;
 
 import io.micronaut.runtime.Micronaut;
 

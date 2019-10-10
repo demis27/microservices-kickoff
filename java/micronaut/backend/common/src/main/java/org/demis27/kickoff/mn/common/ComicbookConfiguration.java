@@ -1,4 +1,4 @@
-package org.talend.kickoff.mn.common;
+package org.demis27.kickoff.mn.common;
 
 import io.micronaut.context.annotation.ConfigurationProperties;
 

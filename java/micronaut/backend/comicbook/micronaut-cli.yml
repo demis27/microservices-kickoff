@@ -1,5 +1,5 @@
 profile: service
-defaultPackage: org.talend.kickoff.mn.comicbook
+defaultPackage: org.demis27.kickoff.mn.comicbook
 ---
 testFramework: junit
 sourceLanguage: java
