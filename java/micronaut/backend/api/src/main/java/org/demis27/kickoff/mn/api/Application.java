@@ -1,4 +1,4 @@
-package org.talend.kickoff.mn.api;
+package org.demis27.kickoff.mn.api;
 
 import io.micronaut.runtime.Micronaut;
 
