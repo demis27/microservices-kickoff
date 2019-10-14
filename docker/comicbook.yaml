@@ -2,12 +2,18 @@ version: '3.1'
 
 services:
   mongo:
-    image: mongo
+    image: mongo:latest
     ports:
       - "27017:27017"
 
+  mongo-init:
+    image: mongo:latest
+    depends_on:
+      - mongo  
+    command: mongo --host mongo --eval  "db.getSiblingDB("kickoff").createUser({user:'kickoff', pwd:'kickoff', roles:['readWrite', 'dbAdmin']});"
+
   comicbook:
-    image: comicbook
+    image: comicbook:latest
     ports:
       - "7001:7001"
     environment:
