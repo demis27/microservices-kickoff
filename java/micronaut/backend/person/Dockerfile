@@ -1,9 +1,10 @@
-FROM oracle/graalvm-ce:1.0.0-rc15 as graalvm
+FROM oracle/graalvm-ce:19.2.0 as graalvm
 COPY . /home/app/person
 WORKDIR /home/app/person
-RUN native-image --no-server -cp target/person-*.jar
+RUN gu install native-image
+RUN native-image --no-server -cp target/person-*.jar --initialize-at-run-time=io.micronaut.configuration.mongo.reactive.test.AbstractMongoProcessFactory
 
 FROM frolvlad/alpine-glibc
-EXPOSE 8080
+EXPOSE 7002
 COPY --from=graalvm /home/app/person .
 ENTRYPOINT ["./person"]

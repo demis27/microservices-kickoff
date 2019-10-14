@@ -1,0 +1,5 @@
+mongodb:
+  uri: mongodb://localhost:27018/kickoff-2019
+
+kickoff:
+  databaseName: kickoff

@@ -1,5 +1,8 @@
 package org.demis27.kickoff.mn.common;
 
+import io.micronaut.core.annotation.Introspected;
+
+@Introspected
 public class Person {
 
     private String id;
