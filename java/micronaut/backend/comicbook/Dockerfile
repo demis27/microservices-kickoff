@@ -1,9 +1,10 @@
-FROM oracle/graalvm-ce:1.0.0-rc15 as graalvm
+FROM oracle/graalvm-ce:19.2.0 as graalvm
 COPY . /home/app/comicbook
 WORKDIR /home/app/comicbook
-RUN native-image --no-server -cp target/comicbook-*.jar
+RUN gu install native-image
+RUN native-image --no-server -cp target/comicbook-*.jar --initialize-at-run-time=io.micronaut.configuration.mongo.reactive.test.AbstractMongoProcessFactory
 
 FROM frolvlad/alpine-glibc
-EXPOSE 8080
+EXPOSE 7001
 COPY --from=graalvm /home/app/comicbook .
 ENTRYPOINT ["./comicbook"]

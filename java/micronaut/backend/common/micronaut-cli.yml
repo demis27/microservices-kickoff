@@ -1,5 +1,0 @@
-profile: service
-defaultPackage: org.demis27.kickoff.mn.common
----
-testFramework: junit
-sourceLanguage: java
