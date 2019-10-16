@@ -1,21 +1,17 @@
 package org.demis27.kickoff.mn.comicbook;
 
 import io.micronaut.http.HttpResponse;
-import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Delete;
-import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
-import io.micronaut.http.annotation.Post;
-import io.micronaut.http.annotation.Put;
 import org.demis27.kickoff.mn.common.Comicbook;
+import org.demis27.kickoff.mn.common.ComicbookOperations;
 import org.demis27.kickoff.mn.common.ComicbookRepository;
 
 import java.util.List;
 
 @Controller("/comicbook/v1/comicbooks")
-public class ComicbookController {
+public class ComicbookController implements ComicbookOperations {
 
     private ComicbookRepository comicbookRepository;
 
@@ -23,12 +19,12 @@ public class ComicbookController {
         this.comicbookRepository = comicbookRepository;
     }
 
-    @Get(value = "/", produces = MediaType.APPLICATION_JSON)
+    @Override
     public HttpResponse<List<Comicbook>> list() {
         return HttpResponse.ok(comicbookRepository.list().blockingGet());
     }
 
-    @Get(value = "/{id}", produces = MediaType.APPLICATION_JSON)
+    @Override
     public HttpResponse<Comicbook> get(@PathVariable String id) {
         Comicbook comicbook = comicbookRepository.get(id).blockingGet();
         if (comicbook != null) {
@@ -38,17 +34,17 @@ public class ComicbookController {
         }
     }
 
-    @Post(value = "/", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    @Override
     public HttpResponse<Comicbook> post(@Body Comicbook person) {
         return HttpResponse.created(comicbookRepository.create(person).blockingGet());
     }
 
-    @Put(value = "/{id}", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    @Override
     public HttpResponse<Comicbook> put(@PathVariable String id, @Body Comicbook comicbook) {
         return HttpResponse.ok(comicbookRepository.update(comicbook).blockingGet());
     }
 
-    @Delete(value = "/{id}")
+    @Override
     public HttpResponse delete(@PathVariable String id) {
         comicbookRepository.delete(id);
         return HttpResponse.noContent();
