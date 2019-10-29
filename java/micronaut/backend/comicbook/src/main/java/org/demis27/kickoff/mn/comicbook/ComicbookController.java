@@ -6,7 +6,6 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.PathVariable;
 import org.demis27.kickoff.mn.common.Comicbook;
 import org.demis27.kickoff.mn.common.ComicbookOperations;
-import org.demis27.kickoff.mn.common.ComicbookRepository;
 
 import java.util.List;
 

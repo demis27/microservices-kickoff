@@ -1,4 +1,4 @@
-package org.demis27.kickoff.mn.common;
+package org.demis27.kickoff.mn.comicbook;
 
 import java.util.List;
 import java.util.UUID;
@@ -12,6 +12,8 @@ import com.mongodb.reactivestreams.client.MongoCollection;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
+import org.demis27.kickoff.mn.common.Comicbook;
+import org.demis27.kickoff.mn.common.ComicbookConfiguration;
 
 @Singleton
 public class ComicbookRepository {

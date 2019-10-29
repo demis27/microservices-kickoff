@@ -3,17 +3,11 @@ package org.demis27.kickoff.mn.person;
 import java.util.List;
 
 import io.micronaut.http.HttpResponse;
-import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Delete;
-import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
-import io.micronaut.http.annotation.Post;
-import io.micronaut.http.annotation.Put;
 import org.demis27.kickoff.mn.common.Person;
 import org.demis27.kickoff.mn.common.PersonOperations;
-import org.demis27.kickoff.mn.common.PersonRepository;
 
 @Controller("/person/v1/persons")
 public class PersonController implements PersonOperations {

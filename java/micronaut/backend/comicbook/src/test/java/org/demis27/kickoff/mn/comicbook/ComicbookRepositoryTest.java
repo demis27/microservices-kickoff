@@ -1,7 +1,8 @@
-package org.demis27.kickoff.mn.common;
+package org.demis27.kickoff.mn.comicbook;
 
 import com.mongodb.reactivestreams.client.MongoClient;
 import io.micronaut.test.annotation.MicronautTest;
+import org.demis27.kickoff.mn.common.Comicbook;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
