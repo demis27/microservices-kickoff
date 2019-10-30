@@ -1,10 +1,5 @@
 package org.demis27.kickoff.helidon.comicbook;
 
-
-
-
-
-
 import org.demis27.kickoff.helidon.comicbook.client.ClientController;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -13,10 +8,7 @@ import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- *
- */
-@ApplicationPath("/data")
+@ApplicationPath("/comicbook/v1")
 @ApplicationScoped
 public class ComicbookRestApplication extends Application {
 
@@ -24,16 +16,8 @@ public class ComicbookRestApplication extends Application {
     public Set<Class<?>> getClasses() {
 
         Set<Class<?>> classes = new HashSet<>();
-
         // resources
-        classes.add(HelloController.class);
-        
-        
-        
-        
-        classes.add(ClientController.class);
-        
-        
+        classes.add(ComicbookController.class);
         return classes;
     }
 }

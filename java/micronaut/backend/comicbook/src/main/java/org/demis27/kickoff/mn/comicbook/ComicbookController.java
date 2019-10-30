@@ -19,9 +19,9 @@ public class ComicbookController implements ComicbookOperations {
     }
 
     @Override
-    public HttpResponse<List<Comicbook>> list() {
-        return HttpResponse.ok(comicbookRepository.list().blockingGet());
-    }
+        public HttpResponse<List<Comicbook>> list() {
+            return HttpResponse.ok(comicbookRepository.list().blockingGet());
+        }
 
     @Override
     public HttpResponse<Comicbook> get(@PathVariable String id) {
