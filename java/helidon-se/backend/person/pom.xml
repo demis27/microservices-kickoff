@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.demis27.kickoff.helidon.se</groupId>
+        <artifactId>backend</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>person</artifactId>
+    <name>Person</name>
+    <description>Person Microservice with Helidon-SE</description>
+
+    <properties>
+        <mainClass>org.demis27.kickoff.helidon.se.person.Main</mainClass>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.helidon.media.jsonb</groupId>
+            <artifactId>helidon-media-jsonb-server</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.demis27.kickoff.helidon.se</groupId>
+            <artifactId>common</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>
