@@ -1,9 +1,4 @@
-[ {
-  "name" : "org.demis27.kickoff.helidon.se.common.Person",
-  "allDeclaredFields" : true,
-  "allPublicMethods" : true,
-  "allDeclaredConstructors" : true
-},
+[
   {
     "name" : "org.demis27.kickoff.helidon.se.common.Comicbook",
     "allDeclaredFields" : true,

@@ -15,7 +15,7 @@
     <description>Comicbook Microservice with Helidon-SE</description>
 
     <properties>
-        <mainClass>org.demis27.kickoff.helidon.se.person.Main</mainClass>
+        <mainClass>org.demis27.kickoff.helidon.se.comicbook.Main</mainClass>
     </properties>
 
     <dependencies>

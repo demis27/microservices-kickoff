@@ -15,15 +15,20 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/comicbooks") @Singleton public class ComicbookController {
+@Path("/")
+@Singleton
+public class ComicbookController {
 
     private ComicbookRepository comicbookRepository;
 
-    @Inject public ComicbookController(ComicbookRepository comicbookRepository) {
+    @Inject
+    public ComicbookController(ComicbookRepository comicbookRepository) {
         this.comicbookRepository = comicbookRepository;
     }
 
-    @GET @Produces(MediaType.APPLICATION_JSON) public List<Comicbook> list() {
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Comicbook> list() {
         return comicbookRepository.list();
     }
 

@@ -8,7 +8,7 @@ import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
 
-@ApplicationPath("/comicbook/v1")
+@ApplicationPath("/comicbook/v1/comicbook")
 @ApplicationScoped
 public class ComicbookRestApplication extends Application {
 
