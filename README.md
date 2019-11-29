@@ -10,3 +10,4 @@ To test the frameworks I develop the following use case with them.
 
 ## Micronaut implementation
 
+The micronaut implementation is available in `java/micronaut/backend` and documentation for the micronaut workshop is available in `java/micronaut/doc`.
