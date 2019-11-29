@@ -12,7 +12,7 @@ We use Kafka for communication between microservices.
 
 We complete the comicbook document by adding persons that contribute to this comicbook as author, artist, penciller, letterer, etc...
 
-A comicbook document look like this:
+A comicbook document look like:
 
 ```json
 {
@@ -21,7 +21,7 @@ A comicbook document look like this:
     "persons" : {
         "WRITER" : [ 
             {
-                "_id" : "67a4980e-e0d4-4355-be1d-96b5cd67064e",
+                "_id" : "f09a81db-298c-46b9-a893-465d9fbf781c",
                 "firstname" : "Chris",
                 "lastname" : "Claremont"
             }
@@ -36,6 +36,16 @@ A comicbook document look like this:
     }
 }
 ```
+A person document look like:
+
+```json
+{
+    "id": "f09a81db-298c-46b9-a893-465d9fbf781c",
+    "firstname": "Chris",
+    "lastname": "Claremont"
+}
+```
+
 So if we update a person by using the person microservice, we also want to update the comicbook document that reference this person. We use Kafka to produce a message in the person microservice, and consume this message on comicbook microservice.
 
 We add a Kafka message producer as in interface
