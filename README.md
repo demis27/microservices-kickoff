@@ -7,3 +7,6 @@ This repository is done to compare Java framework to make micro-services and ser
 To test the frameworks I develop the following use case with them.
 
   ![Use case](/doc/images/usecase.svg)
+
+## Micronaut implementation
+
