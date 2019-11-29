@@ -9,40 +9,40 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Put;
-import org.demis27.kickoff.mn.common.Comicbook;
-import org.demis27.kickoff.mn.common.ComicbookClient;
+import org.demis27.kickoff.mn.common.Person;
+import org.demis27.kickoff.mn.common.PersonClient;
 
 import java.util.List;
 
-@Controller("/api/v1/comicbooks/")
-public class APIComicbookController {
+@Controller("/api/v1/persons/") public class APIPersonController {
 
-    private final ComicbookClient client;
+    private final PersonClient client;
 
-    public APIComicbookController(ComicbookClient client) {
+    public APIPersonController(PersonClient client) {
         this.client = client;
     }
 
-    @Get(value = "/", produces = MediaType.APPLICATION_JSON) public HttpResponse<List<Comicbook>> list() {
+    @Get(value = "/", produces = MediaType.APPLICATION_JSON) public HttpResponse<List<Person>> list() {
         return client.list();
     }
 
     @Get(value = "/{id}", produces = MediaType.APPLICATION_JSON)
-    public HttpResponse<Comicbook> get(@PathVariable String id) {
+    public HttpResponse<Person> get(@PathVariable String id) {
         return client.get(id);
     }
 
     @Post(value = "/", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
-    public HttpResponse<Comicbook> post(@Body Comicbook comicbook) {
-        return client.post(comicbook);
+    public HttpResponse<Person> post(@Body Person person) {
+        return client.post(person);
     }
 
     @Put(value = "/{id}", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
-    public HttpResponse<Comicbook> put(@PathVariable String id, @Body Comicbook comicbook) {
-        return client.put(id, comicbook);
+    public HttpResponse<Person> put(@PathVariable String id, @Body Person person) {
+        return client.put(id, person);
     }
 
     @Delete(value = "/{id}") public HttpResponse delete(@PathVariable String id) {
         return client.delete(id);
     }
+
 }

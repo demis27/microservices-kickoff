@@ -142,7 +142,7 @@ curl -X GET \
   http://localhost:7001/comicbook/v1/comicbooks
 ```
 
-And now, add the API endpoint to POST a comicbook.
+And now, add the API endpoint to POST a comicbook. You can continue with other operations on the Comicbook service, and do the same with the Person service, or checkout the solution.
 
 ### A solution
 
