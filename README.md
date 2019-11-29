@@ -19,6 +19,11 @@ All workshops are based on this use case, and each steps of workshops are based 
 
 ## Micronaut implementation
 
-The micronaut implementation is available in `java/micronaut/backend` and documentation for the micronaut workshop is available in `java/micronaut/doc`.
+The micronaut implementation is available in `java/micronaut/backend` and documentation for the micronaut workshop is available in `java/micronaut/doc`:
 
-* [Step 0: Requirement](/java/micronaut/doc/Step0.md)
+* [Step 0: Requirements](/java/micronaut/doc/Step0.md)
+* [Step 1: Installation and project creation](/java/micronaut/doc/Step1.md)
+* [Step 2: Pojo and repository](/java/micronaut/doc/Step2.md)
+* [Step 3: Comicbook controller](/java/micronaut/doc/Step3.md)
+* [Step 4: Api controller](/java/micronaut/doc/Step4.md)
+* [Step 5: Messages between microservices](/java/micronaut/doc/Step5.md)
