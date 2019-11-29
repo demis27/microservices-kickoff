@@ -1,0 +1,35 @@
+@startuml
+
+:API User: as User
+
+artifact "API Service" as API
+artifact "Comicbook Service" as Comicbook
+artifact "Person Service" as Person
+
+User <-> API: HTTP
+
+API <-> Comicbook: HTTP
+API <-> Person: HTTP
+Person <-> Comicbook: Kafka
+
+database MongoDB {
+    file "Collection: Person" as PersonCollection
+    file "Collection: Comicbook" as ComicbookCollection
+}
+
+Person --> PersonCollection
+Comicbook --> ComicbookCollection
+
+skinparam artifact {
+  backgroundColor lightgreen
+}
+
+skinparam file {
+  backgroundColor khaki
+}
+
+skinparam database {
+  backgroundColor beige
+}
+
+@enduml
