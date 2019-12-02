@@ -1,7 +1,7 @@
 # Micronaut version of the comicbook application.
 
 
-## Step 1 : Install Micronaut CLI and create the project
+## Step 1 : Installation and project creation
 
 We install Micronaut CLI version 1.2.0 with SDKman. This application is to initiate project like the springboot initializr or the maven archetypes.
 

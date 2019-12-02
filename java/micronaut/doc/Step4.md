@@ -1,6 +1,6 @@
 # Micronaut version of the comicbook application.
 
-## Step 4 : API call other services
+## Step 4 : Api controller
 
 If you want to start this step, checkout the step4-init branch of the project.
 

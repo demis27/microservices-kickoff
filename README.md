@@ -1,6 +1,11 @@
 # microservices-kickoff
 
-This repository is done to compare Java framework to make micro-services and serverless application. The first framework tested is Micronaut https://micronaut.io/. For each framework you can play with a small workshop.
+Because I love played with new frameworks, and I want to share with you my explorations, I created with project to compare Java framework to make micro-services and serverless application.
+This project have two goals:
+* Give you a little workshop for each framework
+* Compare all java frameworks to do micro services and serverless application.
+
+The first framework tested is Micronaut https://micronaut.io/. For each framework you can play with a small workshop.
 
 * [Use case](#use_case)
 * [Workshop steps](#workshop_steps)
@@ -8,13 +13,15 @@ This repository is done to compare Java framework to make micro-services and ser
 
 ## Use case
 
-To test the frameworks I develop the following use case with them, this project is named Comicbook.
+To test the frameworks I develop with them the same following use case. This use case is named Comicbook. It's not a "production" use case, but a use case to tests all technologies used in the micro services world.
 
   ![Use case](/doc/images/usecase.svg)
 
-An API user call by HTTP endpoints of API service that redirect calls to the Person service and the Comicbook service. For example to get all comicbooks we use the endpoint `GET /api/v1/comicbooks` redirected to the Comicbook service endpoint `/comicbook/v1/comicbooks`.
+### API service
+In this use case, the user call by HTTP the API service endpoints that redirect calls to the right service (Person or Comicbook). For example to get all comicbooks we use the endpoint `GET /api/v1/comicbooks` redirected to the Comicbook service endpoint `GET /comicbook/v1/comicbooks`.
 
-The comicbooks and persons are stored in mongo collections. The comicbook payload look like:
+### Comicbook service
+The comicbook service manage a comicbook issue stored in mongoDB. Following, a example of a comicbook payload.
 
 ```json
 {
@@ -39,7 +46,8 @@ The comicbooks and persons are stored in mongo collections. The comicbook payloa
 }
 ```
 
-And the person payload look like:
+### Person service  
+The person service manage a person stored in mongoDB. Person represent people who participated in the creation of a comicbook. Following, a example of a person payload.
 
 ```json
 {
@@ -49,7 +57,7 @@ And the person payload look like:
 }
 ```
 
-When we update a person, we send a kafka message and the comicbook service received this message to update all documents that reference this person.
+A person may be a element of a comicbook document. When we update a person, we send a kafka message to the comicbook service. This message is use to update all documents that reference this person. 
 
 ## Workshop steps
 
