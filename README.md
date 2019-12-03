@@ -47,7 +47,7 @@ The comicbook service manage a comicbook issue stored in mongoDB. Following, a e
 ```
 
 ### Person service  
-The person service manage a person stored in mongoDB. Person represent people who participated in the creation of a comicbook. Following, a example of a person payload.
+The person service manage a person stored in mongoDB. Person represent people who contributed in the creation of a comicbook. Following, a example of a person payload.
 
 ```json
 {

@@ -11,3 +11,7 @@ mongodb:
 ---
 kickoff:
   databaseName: ${MONGO_DATABASE:kickoff}
+---
+kafka:
+  bootstrap:
+    servers: localhost:9092

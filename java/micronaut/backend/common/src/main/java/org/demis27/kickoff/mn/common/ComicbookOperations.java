@@ -24,4 +24,7 @@ public interface ComicbookOperations {
     HttpResponse<Comicbook> put(@PathVariable String id, @Body Comicbook comicbook);
 
     @Delete(value = "/{id}") HttpResponse delete(@PathVariable String id);
+
+    @Post(value = "/{comicbookId}/writer/", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    HttpResponse<Comicbook> addWriter(@PathVariable String comicbookId, @Body Person person);
 }

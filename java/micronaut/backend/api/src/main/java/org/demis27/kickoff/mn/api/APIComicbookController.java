@@ -11,6 +11,7 @@ import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Put;
 import org.demis27.kickoff.mn.common.Comicbook;
 import org.demis27.kickoff.mn.common.ComicbookClient;
+import org.demis27.kickoff.mn.common.Person;
 
 import java.util.List;
 
@@ -46,5 +47,10 @@ public class APIComicbookController {
     @Delete(value = "/{id}")
     public HttpResponse delete(@PathVariable String id) {
         return client.delete(id);
+    }
+
+    @Post(value = "/{comicbookId}/writer/", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    HttpResponse<Comicbook> addWriter(@PathVariable String comicbookId, @Body Person person) {
+        return client.addWriter(comicbookId, person);
     }
 }
