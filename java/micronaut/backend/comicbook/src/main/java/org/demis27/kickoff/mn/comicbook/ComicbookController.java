@@ -39,9 +39,8 @@ public class ComicbookController implements ComicbookOperations {
         }
     }
 
-    @Override
-    public HttpResponse<Comicbook> post(@Body Comicbook person) {
-        return HttpResponse.created(comicbookRepository.create(person).blockingGet());
+    @Override public HttpResponse<Comicbook> post(@Body Comicbook comicbook) {
+        return HttpResponse.created(comicbookRepository.create(comicbook).blockingGet());
     }
 
     @Override
