@@ -160,4 +160,4 @@ curl -X GET \
 
 ### Exercice
 
-Now, when you add a comicbook with a person without id, the comicbook service call the person service to create this person. And a message send by the person service is receive by the comicbook service that update document to add the id for person with the same firstname and lastname.
+No Exercice in this step for the moment.
