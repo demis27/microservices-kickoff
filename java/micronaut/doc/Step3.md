@@ -10,12 +10,12 @@ $ git checkout step3-init
 
 We add a controller on Comicbook service and a unit test to test this controller.
 
-* [The controller](#the_controller)
-* [Test the endpoint](#test_the_endpoint)
-* [Build, run and test](#build,_run_and_test)
-* [Build and run a docker image of the service](#build_and_run_a_docker_image_of_the_service)
+* [The controller](#the-controller)
+* [Test the endpoint](#test-the-endpoint)
+* [Build, run and test](#build,-run-and-test)
+* [Build and run a docker image of the service](#build-and-run-a-docker-image-of-the-service)
 * [Exercice](#exercice)
-* [A solution](#a_solution)
+* [A solution](#a-solution)
 
 ### The controller
 
