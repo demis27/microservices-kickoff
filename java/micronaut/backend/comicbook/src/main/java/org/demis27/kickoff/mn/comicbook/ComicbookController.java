@@ -39,8 +39,8 @@ public class ComicbookController {
     }
 
     @Post(value = "/", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
-    public HttpResponse<Comicbook> post(@Body Comicbook person) {
-        return HttpResponse.created(comicbookRepository.create(person).blockingGet());
+    public HttpResponse<Comicbook> post(@Body Comicbook comicbook) {
+        return HttpResponse.created(comicbookRepository.create(comicbook).blockingGet());
     }
 
     @Put(value = "/{id}", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
