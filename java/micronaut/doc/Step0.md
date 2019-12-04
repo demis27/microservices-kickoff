@@ -1,6 +1,6 @@
 # Micronaut version of the comicbook application.
 
-This step contains requirements and somme initialisation for the project.
+This step contains requirements and some initialisation for the project.
 
 ## Step 0 : Requirements
 * Install [SDKMan](https://sdkman.io/)
