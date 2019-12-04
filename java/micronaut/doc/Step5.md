@@ -132,7 +132,7 @@ Now we can run a docker-compose of a kafka and a zookeeper docker images, presen
 $ docker-compose -f kafka.yaml
 ```
 
-And we launch all services. We can add a person to a comicbook.
+And we launch all services. We can add a person, with the writer role, to a comicbook by this call (change the id of the comicbook):
 
 ```shell
 curl -X POST \
@@ -142,7 +142,7 @@ curl -X POST \
   -d '{"id": "5f4cdbed-62ba-44e7-9f1e-9959277cfada", "firstname":"Jerry", "lastname": "Siegel"}'
 ```
 
-If I update the person like this.
+If I update the person like this:
 
 ```shell
 curl -X PUT \
@@ -151,7 +151,7 @@ curl -X PUT \
   -d '{"id":"5f4cdbed-62ba-44e7-9f1e-9959277cfada", "firstname":"JERRY", "lastname":"SIEGEL"}'
 ```
 
-Then, when I get this comicbook, the person was updated.
+Then, when I get this comicbook, the person was updated:
 
 ```shell
 curl -X GET \
