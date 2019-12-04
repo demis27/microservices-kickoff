@@ -7,9 +7,9 @@ This project have two goals:
 
 The first framework tested is Micronaut https://micronaut.io/. For each framework you can play with a small workshop.
 
-* [Use case](#use_case)
-* [Workshop steps](#workshop_steps)
-* [Micronaut implementation](#micronaut_implementation)
+* [Use case](#use-case)
+* [Workshop steps](#workshop-steps)
+* [Micronaut implementation](#micronaut-implementation)
 
 ## Use case
 
