@@ -1,0 +1,713 @@
+{
+	"info": {
+		"_postman_id": "08faea22-aad9-44ea-a42a-6f74f4f7bdad",
+		"name": "Microservice Kickoff",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Comicbook",
+			"item": [
+				{
+					"name": "Get all Comicbooks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7001/comicbook/v1/comicbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"comicbook",
+								"v1",
+								"comicbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Comicbook",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7001/comicbook/v1/comicbooks/b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"comicbook",
+								"v1",
+								"comicbooks",
+								"b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Comicbook",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Aquaman\"\n\n}"
+						},
+						"url": {
+							"raw": "http://localhost:7001/comicbook/v1/comicbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"comicbook",
+								"v1",
+								"comicbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a Comicbook",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"cf7beca9-57d6-4a02-a8f2-27ae070ada25\", \"name\":\"Super-Man2\"}"
+						},
+						"url": {
+							"raw": "http://localhost:7001/comicbook/v1/comicbooks/cf7beca9-57d6-4a02-a8f2-27ae070ada25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"comicbook",
+								"v1",
+								"comicbooks",
+								"cf7beca9-57d6-4a02-a8f2-27ae070ada25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Comicbook",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7001/comicbook/v1/comicbooks/3f4ca074-3be7-4f87-8d98-2c0d3fc6fc5f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"comicbook",
+								"v1",
+								"comicbooks",
+								"3f4ca074-3be7-4f87-8d98-2c0d3fc6fc5f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a writer to the comicbook",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"5f4cdbed-62ba-44e7-9f1e-9959277cfada\", \"firstname\":\"Jerry\", \"lastname\": \"Siegel\"}"
+						},
+						"url": {
+							"raw": "http://localhost:7001/comicbook/v1/comicbooks/b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9/writer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"comicbook",
+								"v1",
+								"comicbooks",
+								"b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9",
+								"writer",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Get all Persons",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7002/person/v1/persons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7002",
+							"path": [
+								"person",
+								"v1",
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Person",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7002/person/v1/persons/1c220fb0-2c83-4a37-a387-b5f176db07d9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7002",
+							"path": [
+								"person",
+								"v1",
+								"persons",
+								"1c220fb0-2c83-4a37-a387-b5f176db07d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Person",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstname\":\"Barry\", \"lastname\":\"Allen\"\n\n}"
+						},
+						"url": {
+							"raw": "http://localhost:7002/person/v1/persons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7002",
+							"path": [
+								"person",
+								"v1",
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Person",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7002/person/v1/persons/1d350f4b-60d0-4e15-8341-34c63da7e7c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7002",
+							"path": [
+								"person",
+								"v1",
+								"persons",
+								"1d350f4b-60d0-4e15-8341-34c63da7e7c7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a person",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"5f4cdbed-62ba-44e7-9f1e-9959277cfada\", \"firstname\":\"JERRY\", \"lastname\":\"SIEGEL\"}"
+						},
+						"url": {
+							"raw": "http://localhost:7002/person/v1/persons/f09a81db-298c-46b9-a893-465d9fbf781c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7002",
+							"path": [
+								"person",
+								"v1",
+								"persons",
+								"f09a81db-298c-46b9-a893-465d9fbf781c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Comicbooks",
+					"item": [
+						{
+							"name": "API Get all Comicbooks",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7000/api/v1/comicbooks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"comicbooks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API Get a Comicbook",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7000/api/v1/comicbooks/b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"comicbooks",
+										"b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API Add a Comicbook",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"Green Arrow\"\n\n}"
+								},
+								"url": {
+									"raw": "http://localhost:7000/api/v1/comicbooks/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"comicbooks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API Delete a Comicbook",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:7000/api/v1/comicbooks/4e4b050a-9c8f-4e74-82ff-e82d4e45a75c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"comicbooks",
+										"4e4b050a-9c8f-4e74-82ff-e82d4e45a75c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a writer to the comicbook",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"firstname\": \"Barry\",\n        \"lastname\": \"Allen\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:7000/api/v1/comicbooks/b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9/writer/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"comicbooks",
+										"b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9",
+										"writer",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API Modify a Comicbook",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"id\": \"cf7beca9-57d6-4a02-a8f2-27ae070ada25\", \"name\":\"Super-Man2\"}"
+								},
+								"url": {
+									"raw": "http://localhost:7000/api/v1/comicbooks/cf7beca9-57d6-4a02-a8f2-27ae070ada25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"comicbooks",
+										"cf7beca9-57d6-4a02-a8f2-27ae070ada25"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Persons",
+					"item": [
+						{
+							"name": "API Get all Persons",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7000/api/v1/persons",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"persons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API Get a Person",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7000/api/v1/persons/1c220fb0-2c83-4a37-a387-b5f176db07d9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"persons",
+										"1c220fb0-2c83-4a37-a387-b5f176db07d9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API Add a Person",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"firstname\": \"Oliver\",\n     \"lastname\": \"Queen\"\n\n}"
+								},
+								"url": {
+									"raw": "http://localhost:7000/api/v1/persons/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"persons",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API Delete a Person",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:7000/api/v1/persons/3f26b974-9909-4cfe-b4f1-ab0e0c3c3d43",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"persons",
+										"3f26b974-9909-4cfe-b4f1-ab0e0c3c3d43"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API Modify a person",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"id\":\"f09a81db-298c-46b9-a893-465d9fbf781c\", \"firstname\":\"Jerry\", \"lastname\":\"SIEGEL\"}"
+								},
+								"url": {
+									"raw": "http://localhost:7000/api/v1/persons/f09a81db-298c-46b9-a893-465d9fbf781c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"persons",
+										"f09a81db-298c-46b9-a893-465d9fbf781c"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	]
+}

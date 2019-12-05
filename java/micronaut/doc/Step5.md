@@ -10,9 +10,9 @@ $ git checkout step5-init
 
 * [Introduction](#introduction)
 * [Configuration](#configuration)
-* [Produce the message](#produce_the_message)
-* [Consume the message](#consume_the_message)
-* [Run and tests](#run_and_tests)
+* [Produce the message](#produce-the-message)
+* [Consume the message](#consume-the-message)
+* [Run and tests](#run-and-tests)
 * [Exercice](#exercice)
 
 
