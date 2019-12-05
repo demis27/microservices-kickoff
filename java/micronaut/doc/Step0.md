@@ -1,14 +1,14 @@
 # Micronaut version of the comicbook application.
 
-## Step 0 : Requirements and initialise mongodb
+## Step 0 : Requirements
 
 This step contains requirements and some initialisation for the project.
 
-* [Requirement](#requirement)
+* [Requirements](#requirements)
 * [Use Mongodb as a docker image](#use-mongodb-as-a-docker-image)
 * [Set a user on Mongodb for the project](#set-a-user-on-mongodb-for-the-project)
 
-## Requirement
+## Requirements
 * Install [SDKMan](https://sdkman.io/)
 * Use SDKMan to install a JDK 8 (`sdk install java 8.0.222-zulu), or use your own JDK 8.
 
