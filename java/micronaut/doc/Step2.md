@@ -12,8 +12,8 @@ We add a test class to test the repository with Flapdoodle for Mongo and add a c
 
 * [The Pojo](#the-pojo)
 * [The repository](#the-repository)
-* [The repository test](#the-repository-test)
-* [Small configuration](#small_configuration)
+* [The repository tests](#the-repository-tests)
+* [Small configuration](#small-configuration)
 
 ### The Pojo
 
