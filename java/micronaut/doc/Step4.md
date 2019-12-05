@@ -12,7 +12,7 @@ In our use case the service API call other services to have only one service in 
 
 * [Operations](#operations)
 * [Update the controller](#update-the-controller)
-* [The HTTP client](#The-HTTP-client)
+* [The HTTP client](#the-http-client)
 * [Exercice](#exercice)
 
 ### Operations
