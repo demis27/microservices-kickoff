@@ -12,6 +12,11 @@ services:
       - mongo  
     command: mongo --host mongo --eval  "db.getSiblingDB("kickoff").createUser({user:'kickoff', pwd:'kickoff', roles:['readWrite', 'dbAdmin']});"
 
+  api:
+    image: api:latest
+    ports:
+      - "7000:7000"
+
   comicbook:
     image: comicbook:latest
     ports:
