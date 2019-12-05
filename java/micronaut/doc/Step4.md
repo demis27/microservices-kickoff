@@ -1,6 +1,6 @@
 # Micronaut version of the comicbook application.
 
-## Step 4 : API call other services
+## Step 4 : Api controller
 
 If you want to start this step, checkout the step4-init branch of the project.
 
@@ -11,8 +11,8 @@ $ git checkout step4-init
 In our use case the service API call other services to have only one service in front of the application. For this we choose to use a Java service like others to use the Micronaut HTTP client, and to apply "Operations" method.
 
 * [Operations](#operations)
-* [Update the controller](#update_the_controller)
-* [The HTTP client](#The_HTTP_client)
+* [Update the controller](#update-the-controller)
+* [The HTTP client](#The-HTTP-client)
 * [Exercice](#exercice)
 
 ### Operations
@@ -142,7 +142,7 @@ curl -X GET \
   http://localhost:7001/comicbook/v1/comicbooks
 ```
 
-And now, add the API endpoint to POST a comicbook. You can continue with other operations on the Comicbook service, and do the same with the Person service, or checkout the solution.
+And now, add the API endpoint to POST a comicbook.
 
 ### A solution
 
