@@ -124,6 +124,27 @@ public class PersonListener {
 
 We add a comicbook service to manage the modification of a person inside the comicbooks.
 
+### Adapt unit test
+
+In the controller unit test, we mock the kafka producer with Mockito and test the sendPerson method is call for a POST and a PUT.
+
+```java
+    @Inject PersonProducer personProducer;
+
+    [...]
+
+    @MockBean(PersonProducer.class)
+    public PersonProducer personProducer() {
+        return mock(PersonProducer.class);
+    }
+
+    [...]
+
+            verify(personProducer, times(1)).sendPerson(anyString(), any(Person.class));
+
+    [...]
+```
+
 ### Run and tests
 
 Now we can run a docker-compose of a kafka and a zookeeper docker images, present in the branch in docker directory.

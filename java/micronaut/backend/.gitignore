@@ -95,3 +95,7 @@ modules.xml
 .idea/.gitignore
 */target/
 /*/dependency-reduced-pom.xml
+**/.project
+**/.classpath
+**/.factorypath
+**/.settings

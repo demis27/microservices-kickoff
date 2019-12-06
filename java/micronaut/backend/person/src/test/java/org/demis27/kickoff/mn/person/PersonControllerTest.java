@@ -15,7 +15,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @MicronautTest class PersonControllerTest {
 
@@ -41,6 +45,7 @@ import static org.mockito.Mockito.mock;
         Person Person = new Person();
         Person.setFirstname("Clark");
         Person retrieve = client.toBlocking().retrieve(HttpRequest.POST("/", Person), Person.class);
+        verify(personProducer, times(1)).sendPerson(anyString(), any(Person.class));
 
         assertNotNull(retrieve);
         assertNotNull(retrieve.getId());
@@ -62,6 +67,7 @@ import static org.mockito.Mockito.mock;
         Person.setFirstname("Bruce");
         Person.setId(id);
         retrieve = client.toBlocking().retrieve(HttpRequest.PUT("/" + id, Person), Person.class);
+        verify(personProducer, times(2)).sendPerson(anyString(), any(Person.class));
         assertPersonEquals(Person, retrieve, id);
 
         // Read again
