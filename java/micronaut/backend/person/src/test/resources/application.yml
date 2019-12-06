@@ -1,5 +1,8 @@
-mongodb:
-  uri: mongodb://localhost:27018/kickoff-2019
+micronaut:
+  application:
+    name: person
+  server:
+    port: 7101
 
-kickoff:
-  databaseName: kickoff
+mongodb:
+  uri: mongodb://localhost:27018/kickoff

@@ -6,6 +6,7 @@ import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.runtime.server.EmbeddedServer;
 import io.micronaut.test.annotation.MicronautTest;
+import io.micronaut.test.annotation.MockBean;
 import org.demis27.kickoff.mn.common.Person;
 import org.junit.jupiter.api.Test;
 
@@ -14,12 +15,20 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.mock;
 
 @MicronautTest class PersonControllerTest {
+
+    @Inject PersonProducer personProducer;
 
     @Inject EmbeddedServer server;
 
     @Inject @Client("/person/v1/persons") HttpClient client;
+
+    @MockBean(PersonProducer.class)
+    public PersonProducer personProducer() {
+        return mock(PersonProducer.class);
+    }
 
     @Test void emptyList() throws Exception {
         String retrieve = client.toBlocking().retrieve(HttpRequest.GET(""), String.class);
