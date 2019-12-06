@@ -19,6 +19,7 @@ services:
     environment:
       - COMICBOOK_URL=http://comicbook:7001
       - PERSON_URL=http://person:7002
+      - API_PORT=7000
 
   comicbook:
     image: comicbook:latest
@@ -34,6 +35,7 @@ services:
       - KAFKA_HOST=kafka
       - KAFKA_PORT=9092
       - PERSON_URL=http://person:7002
+      - COMICBOOK_PORT=7001
 
   person:
     image: person:latest
@@ -48,6 +50,7 @@ services:
       - MONGO_DATABASE=kickoff      
       - KAFKA_HOST=kafka
       - KAFKA_PORT=9092
+      - PERSON_PORT=7002
 
   zookeeper:
     image: wurstmeister/zookeeper

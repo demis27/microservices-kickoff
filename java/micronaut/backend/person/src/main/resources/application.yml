@@ -3,7 +3,7 @@ micronaut:
   application:
     name: person
   server:
-    port: 7002
+    port: ${PERSON_PORT:7002}
 
 ---
 mongodb:

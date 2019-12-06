@@ -3,7 +3,7 @@ micronaut:
   application:
     name: comicbook
   server:
-    port: 7001
+    port: ${COMICBOOK_PORT:7001}
   http:
     services:
       person:

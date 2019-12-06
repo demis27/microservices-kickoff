@@ -3,7 +3,7 @@ micronaut:
   application:
     name: api
   server:
-    port: 7000
+    port: ${API_PORT:7000}
   http:
     services:
       comicbook:
