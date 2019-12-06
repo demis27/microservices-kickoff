@@ -12,7 +12,7 @@ We add a controller on Comicbook service and a unit test to test this controller
 
 * [The controller](#the-controller)
 * [Test the endpoint](#test-the-endpoint)
-* [Build, run and test](#build,-run-and-test)
+* [Build run and test](#build-run-and-test)
 * [Build and run a docker image of the service](#build-and-run-a-docker-image-of-the-service)
 * [Exercice](#exercice)
 * [A solution](#a-solution)
@@ -61,7 +61,7 @@ public class ComicbookControllerTest {
 ```
 You can run this test by Maven or in your IDE. The test succeed.
 
-### Build, run and test
+### Build run and test
 
 Build and run the service with your IDE, or with shell commands:
 ```shell
