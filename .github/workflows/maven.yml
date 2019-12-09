@@ -13,7 +13,5 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: move to
-      run: cd java/micronaut/backend
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Build Micronaut Version
+      run: cd java/micronaut/backend; mvn -B package --file pom.xml
