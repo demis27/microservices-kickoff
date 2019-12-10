@@ -20,6 +20,9 @@ services:
       - COMICBOOK_URL=http://comicbook:7001
       - PERSON_URL=http://person:7002
       - API_PORT=7000
+      - ZIPKIN_URL=http://zipkin:9411
+      - ZIPKIN_PROBABILITY=1
+      - ZIPKIN_ENABLED=true
 
   comicbook:
     image: comicbook:latest
@@ -29,13 +32,14 @@ services:
     ports:
       - "7001:7001"
     environment:
-      - MONGO_HOST=mongo
-      - MONGO_PORT=27017
+      - MONGO_URI=mongodb://:mongo:27017
       - MONGO_DATABASE=kickoff
-      - KAFKA_HOST=kafka
-      - KAFKA_PORT=9092
+      - KAFKA_URL=kafka:9092
       - PERSON_URL=http://person:7002
       - COMICBOOK_PORT=7001
+      - ZIPKIN_URL=http://zipkin:9411
+      - ZIPKIN_PROBABILITY=1
+      - ZIPKIN_ENABLED=true
 
   person:
     image: person:latest
@@ -45,12 +49,13 @@ services:
     ports:
       - "7002:7002"
     environment:
-      - MONGO_HOST=mongo
-      - MONGO_PORT=27017
-      - MONGO_DATABASE=kickoff      
-      - KAFKA_HOST=kafka
-      - KAFKA_PORT=9092
+      - MONGO_URI=mongodb://:mongo:27017
+      - MONGO_DATABASE=kickoff
+      - KAFKA_URL=kafka:9092
       - PERSON_PORT=7002
+      - ZIPKIN_URL=http://zipkin:9411
+      - ZIPKIN_PROBABILITY=1
+      - ZIPKIN_ENABLED=true
 
   zookeeper:
     image: wurstmeister/zookeeper
@@ -67,3 +72,8 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT= zookeeper:2181
     volumes:
       - /tmp/kafka-comicbook-logs:/var/lib/kafka
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"

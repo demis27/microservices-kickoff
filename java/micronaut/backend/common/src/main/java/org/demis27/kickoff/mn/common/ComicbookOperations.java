@@ -8,12 +8,13 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Put;
+import io.micronaut.tracing.annotation.ContinueSpan;
 
 import java.util.List;
 
 public interface ComicbookOperations {
 
-    @Get(value = "/", produces = MediaType.APPLICATION_JSON) HttpResponse<List<Comicbook>> list();
+    @ContinueSpan @Get(value = "/", produces = MediaType.APPLICATION_JSON) HttpResponse<List<Comicbook>> list();
 
     @Get(value = "/{id}", produces = MediaType.APPLICATION_JSON) HttpResponse<Comicbook> get(@PathVariable String id);
 

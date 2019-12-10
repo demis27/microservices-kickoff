@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import javax.inject.Inject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @MicronautTest
 class ComicbookRepositoryTest {
@@ -31,7 +31,7 @@ class ComicbookRepositoryTest {
 
     @Test void get() throws Exception {
         Comicbook comicbook = create("Avengers West-Coast");
-        assertEquals(comicbook.getName(), repository.get(comicbook.getId()).blockingGet().getName());
+        assertEquals(comicbook.getName(), repository.get(comicbook.getId()).blockingFirst().getName());
     }
 
     @Test void create() throws Exception {
@@ -50,7 +50,7 @@ class ComicbookRepositoryTest {
     @Test void delete() throws Exception {
         Comicbook comicbook = create("Avengers West-Coast");
         repository.delete(comicbook.getId());
-        assertNull(repository.get(comicbook.getId()).blockingGet());
+        assertTrue(repository.get(comicbook.getId()).isEmpty().blockingGet());
     }
 
     private Comicbook create(String name) {

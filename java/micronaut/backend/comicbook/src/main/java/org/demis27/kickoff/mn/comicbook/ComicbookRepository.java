@@ -1,19 +1,18 @@
 package org.demis27.kickoff.mn.comicbook;
 
-import java.util.List;
-import java.util.UUID;
-
-import javax.inject.Singleton;
-
 import com.mongodb.client.model.Filters;
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoCollection;
-
+import io.micronaut.tracing.annotation.ContinueSpan;
+import io.micronaut.tracing.annotation.SpanTag;
 import io.reactivex.Flowable;
-import io.reactivex.Maybe;
 import io.reactivex.Single;
 import org.demis27.kickoff.mn.common.Comicbook;
 import org.demis27.kickoff.mn.common.ComicbookConfiguration;
+
+import javax.inject.Singleton;
+import java.util.List;
+import java.util.UUID;
 
 @Singleton
 public class ComicbookRepository {
@@ -33,8 +32,8 @@ public class ComicbookRepository {
         return Flowable.fromPublisher(getCollection().find()).toList();
     }
 
-    public Maybe<Comicbook> get(String id) {
-        return Flowable.fromPublisher(getCollection().find(Filters.eq("_id", id)).limit(1)).firstElement();
+    @ContinueSpan public Flowable<Comicbook> get(@SpanTag("comicbook.Id") String id) {
+        return Flowable.fromPublisher(getCollection().find(Filters.eq("_id", id)).limit(1));
     }
 
     public Single<Comicbook> create(Comicbook comicbook) {
