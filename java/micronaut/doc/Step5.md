@@ -12,13 +12,12 @@ $ git checkout step5-init
 * [Configuration](#configuration)
 * [Produce the message](#produce-the-message)
 * [Consume the message](#consume-the-message)
-* [Run and tests](#run-and-tests)
 * [Exercice](#exercice)
 
 
 ### Introduction
 
-We complete the comicbook document by adding persons who contributed to this comicbook as author, artist, penciller, letterer, etc... When a person document changes, the person service send a message to the comicbook service to update all documents that contains this updated person.
+We complete the comicbook document by adding persons who contributed to this comicbook as author, artist, penciller, letterer, etc... When a person document changes, the person service send a message to the comicbook service to update all documents that contains this person.
 
 For that we use Kafka for communication between microservices. We produce a message in the person service, and consume this message on comicbook service.
 
@@ -39,6 +38,7 @@ A comicbook document look like:
     }
 }
 ```
+
 A person document look like:
 
 ```json
@@ -101,6 +101,7 @@ And we inject this producer to the controller, to send a message when we update 
     }
 
 ```
+
 ### Consume the message
 
 On the comicbook microservice, we add a listener to read messages and process them.
@@ -122,42 +123,193 @@ public class PersonListener {
 }
 ```
 
-We add a comicbook service to manage the modification of a person inside the comicbooks.
-
-### Run and tests
-
-Now we can run a docker-compose of a kafka and a zookeeper docker images, present in the branch in docker directory.
-
-```shell
-$ docker-compose -f kafka.yaml
-```
-
-And we launch all services. We can add a person, with the writer role, to a comicbook by this call (change the id of the comicbook):
-
-```shell
-curl -X POST \
-  'http://localhost:7001/comicbook/v1/comicbooks/b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9/writer/?=' \
-  -H 'Accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{"id": "5f4cdbed-62ba-44e7-9f1e-9959277cfada", "firstname":"Jerry", "lastname": "Siegel"}'
-```
-
-If I update the person like this:
-
-```shell
-curl -X PUT \
-  http://localhost:7002/person/v1/persons/5f4cdbed-62ba-44e7-9f1e-9959277cfada \
-  -H 'Content-Type: application/json' \
-  -d '{"id":"5f4cdbed-62ba-44e7-9f1e-9959277cfada", "firstname":"JERRY", "lastname":"SIEGEL"}'
-```
-
-Then, when I get this comicbook, the person was updated:
-
-```shell
-curl -X GET \
-  http://localhost:7001/comicbook/v1/comicbooks/b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9
-```
-
 ### Exercice
 
-No Exercice in this step for the moment.
+We will build native docker image, launch the docker-compose and test a comicbook is updated when a person is updated.
+
+#### Build all backend
+
+```shell
+microservices-kickoff/java/micronaut/backend> mvn clean install
+```
+
+We expected result is a successfull buid.
+
+#### Build native image
+
+```shell
+microservices-kickoff/java/micronaut/backend/api> ./docker-build.sh
+```
+
+```shell
+microservices-kickoff/java/micronaut/backend/person> ./docker-build.sh
+```
+
+```shell
+microservices-kickoff/java/micronaut/backend/comicbook> ./docker-build.sh
+```
+
+We expected result is (port and service are different):
+
+```shell
+To run the docker container execute:
+    $ docker run -p 8080:8080 comicbook
+```
+
+And we can check the docker images exist.
+
+``` shell
+$ docker images | grep "api\|person\|comicbook"
+comicbook                latest              9702f4eb38b6        19 minutes ago      110MB
+person                   latest              b924b8ef04aa        21 minutes ago      110MB
+api                      latest              b30ab4edd93d        24 minutes ago      92MB
+```
+
+#### Launch the docker compose
+
+Before launch the docker compose, stop previousvly launched container (kafka, zookeeper, etc...).
+
+```shell
+microservices-kickoff/docker> docker-compose -f comicbook.yaml up -d
+```
+
+We check the list of running containers.
+
+```shell
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                                  NAMES
+9815565a52d2        comicbook:latest         "./comicbook"            21 minutes ago      Up 21 minutes       0.0.0.0:7001->7001/tcp                 docker_comicbook_1
+1b89e60d134e        person:latest            "./person"               21 minutes ago      Up 21 minutes       0.0.0.0:7002->7002/tcp                 docker_person_1
+3dff43306423        wurstmeister/kafka       "start-kafka.sh"         21 minutes ago      Up 21 minutes       0.0.0.0:9092->9092/tcp                 docker_kafka_1
+ec83cdee82a6        wurstmeister/zookeeper   "/bin/sh -c '/usr/sb…"   22 minutes ago      Up 21 minutes       22/tcp, 2181/tcp, 2888/tcp, 3888/tcp   docker_zookeeper_1
+851f443cfda0        api:latest               "./api"                  22 minutes ago      Up 21 minutes       0.0.0.0:7000->7000/tcp, 7001/tcp       docker_api_1
+7329d5521b05        mongo:latest             "docker-entrypoint.s…"   18 hours ago        Up 22 minutes       0.0.0.0:27017->27017/tcp               docker_mongo_1
+```
+
+#### Test with curl
+
+Note: Id of resources you created are not the same as the following exemple. Please update with yours.
+
+The scenario of this test is:
+1. We create a person
+2. We create a comicbook that use this person as writer of the comicbook
+3. We update this person
+4. We get the comicbook to check if the writer is updated
+
+___
+1. We create a person
+
+Request
+```shell
+$ curl -X POST \
+  http://localhost:7000/api/v1/persons/ \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	   "firstname": "Oliver",
+     "lastname": "Queen"
+
+}'
+```
+
+Response
+```json
+{
+  "id":"95a34d8e-7ce4-4a85-bf73-dabe455fdd95",
+  "firstname":"Oliver",
+  "lastname":"Queen"
+}
+```
+
+___
+2. We create a comicbook with this person:
+
+Request
+```shell
+$ curl -X POST \
+  http://localhost:7000/api/v1/comicbooks/ \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "Green Arrow",
+    "persons": {
+        "WRITER": [
+            {
+             	"id":"95a34d8e-7ce4-4a85-bf73-dabe455fdd95",
+               	"firstname":"Oliver",
+               	"lastname":"Queen"
+            }
+        ]
+    }
+}'
+```
+
+Response
+```json
+{
+    "id": "8f9ba4cd-957f-499e-8d65-b30d7c28be6a",
+    "name": "Green Arrow",
+    "persons": {
+        "WRITER": [
+            {
+                "id": "95a34d8e-7ce4-4a85-bf73-dabe455fdd95",
+                "firstname": "Oliver",
+                "lastname": "Queen"
+            }
+        ]
+    }
+}
+```
+
+___
+3. We update the person (the lastname is change to uppercase):
+
+Request
+```shell
+$ curl -X PUT \
+  http://localhost:7000/api/v1/persons/95a34d8e-7ce4-4a85-bf73-dabe455fdd95 \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "id": "95a34d8e-7ce4-4a85-bf73-dabe455fdd95",
+    "firstname": "Oliver",
+    "lastname": "QUEEN"
+}'
+```
+
+Response
+```json
+{
+    "id": "95a34d8e-7ce4-4a85-bf73-dabe455fdd95",
+    "firstname": "Oliver",
+    "lastname": "QUEEN"
+}
+```
+
+___
+4. We get the updated comicbook
+
+Request
+```shell
+$ curl -X GET \
+  http://localhost:7000/api/v1/comicbooks/8f9ba4cd-957f-499e-8d65-b30d7c28be6a \
+  -H 'Accept: application/json'
+```
+
+Response
+```json
+{
+    "id": "8f9ba4cd-957f-499e-8d65-b30d7c28be6a",
+    "name": "Green Arrow",
+    "persons": {
+        "WRITER": [
+            {
+                "id": "95a34d8e-7ce4-4a85-bf73-dabe455fdd95",
+                "firstname": "Oliver",
+                "lastname": "QUEEN"
+            }
+        ]
+    }
+}
+```
+
+The writer is updated.
