@@ -69,6 +69,7 @@ All workshops are based on this use case, and each steps of workshops are based 
 * Step 3: Comicbook controller
 * Step 4: Api controller
 * Step 5: Messages between microservices
+* Step 6: Zipkin integration (In Progress)
 
 ## Micronaut implementation
 
@@ -80,3 +81,4 @@ The micronaut implementation is available in `/java/micronaut/backend` and docum
 * [Step 3: Comicbook controller](/java/micronaut/doc/Step3.md)
 * [Step 4: Api controller](/java/micronaut/doc/Step4.md)
 * [Step 5: Messages between microservices](/java/micronaut/doc/Step5.md)
+* [Step 6: Zipkin integration](/java/micronaut/doc/Step6.md) (In Progress)
