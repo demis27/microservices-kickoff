@@ -32,7 +32,7 @@ services:
     ports:
       - "7001:7001"
     environment:
-      - MONGO_URI=mongodb://:mongo:27017
+      - MONGO_URI=mongodb://mongo:27017
       - MONGO_DATABASE=kickoff
       - KAFKA_URL=kafka:9092
       - PERSON_URL=http://person:7002
@@ -42,14 +42,14 @@ services:
       - ZIPKIN_ENABLED=true
 
   person:
-    image: person:latest
+    image: person.slim:latest
     depends_on: 
       - kafka
       - zookeeper
     ports:
       - "7002:7002"
     environment:
-      - MONGO_URI=mongodb://:mongo:27017
+      - MONGO_URI=mongodb://mongo:27017
       - MONGO_DATABASE=kickoff
       - KAFKA_URL=kafka:9092
       - PERSON_PORT=7002
