@@ -3,7 +3,12 @@
 * [Introduction](#introduction)
 * [Use case](#use-case)
 * [Workshop steps](#workshop-steps)
-* [Micronaut implementation](#micronaut-implementation)
+* [Implementations](#implementation)
+    * [Micronaut implementation](#micronaut-implementation)
+    * [Quarkus implementation](#quarkus-implementation)
+    * [Springboot implementation](#springboot-implementation)
+* [Compare frameworks](#compare-frameworks)
+    * [Docker images size](#docker-images-size)
 
 ## Introduction
 
@@ -23,25 +28,25 @@ To test the frameworks I develop with them the same following use case. This use
 
 ### API service
 
-In this use case, the user call by HTTP the API service endpoints that redirect calls to the right service (Person or Comicbook). For example to get all comicbooks we use the endpoint `GET /api/v1/comicbooks` redirected to the Comicbook service endpoint `GET /comicbook/v1/comicbooks`.
+In this use case, the user call by HTTP the API service endpoints that redirect calls to the right service (Person or Comicbook). The API service is an handmade API Gateway. For example to get all comicbooks we use the API endpoint `GET /api/v1/comicbooks` redirected to the Comicbook service endpoint `GET /comicbook/v1/comicbooks`.
 
 ### Comicbook service
 
-The comicbook service manage a comicbook issue stored in mongoDB. Following, a example of a comicbook payload.
+The comicbook service manage a comicbook issue stored in mongoDB. Following, an example of a comicbook payload.
 
 ```json
 {
     "_id" : "b9f60ef3-2497-40c7-b96d-b5ebe2f6d9d9",
     "name" : "Northstar",
     "persons" : {
-        "WRITER" : [ 
+        "WRITER" : [
             {
                 "_id" : "f09a81db-298c-46b9-a893-465d9fbf781c",
                 "firstname" : "Chris",
                 "lastname" : "Claremont"
             }
         ],
-        "ARTIST" : [ 
+        "ARTIST" : [
             {
                 "_id" : "67a4980e-e0d4-4355-be1d-96b5cd67064e",
                 "firstname" : "John",
@@ -54,7 +59,7 @@ The comicbook service manage a comicbook issue stored in mongoDB. Following, a e
 
 ### Person service
 
-The person service manage a person stored in mongoDB. Person represent people who contributed in the creation of a comicbook. Following, a example of a person payload.
+The person service manage a person stored in mongoDB. Person represent people who contributed to the creation of a comicbook. Following, an example of a person payload.
 
 ```json
 {
@@ -64,7 +69,7 @@ The person service manage a person stored in mongoDB. Person represent people wh
 }
 ```
 
-A person may be a element of a comicbook document. When we update a person, we send a kafka message to the comicbook service. This message is use to update all documents that reference this person. 
+A person may be a element of a comicbook document. When we update a person, we send a kafka message to the comicbook service. This message is use to update all documents that reference this person.
 
 ## Workshop steps
 
@@ -78,9 +83,11 @@ All workshops are based on this use case, and each steps of workshops are based 
 * Step 5: Messages between microservices
 * Step 6: Zipkin integration (In Progress)
 
-## Micronaut implementation
+## Implementations
 
-The micronaut implementation is available in `/java/micronaut/backend` and documentation for the micronaut workshop is available in `/java/micronaut/doc`:
+### Micronaut implementation
+
+The micronaut implementation is available at `/java/micronaut/backend` and documentation for the micronaut workshop is available at `/java/micronaut/doc`.
 
 * [Step 0: Requirements](/java/micronaut/doc/Step0.md)
 * [Step 1: Installation and project creation](/java/micronaut/doc/Step1.md)
@@ -89,3 +96,17 @@ The micronaut implementation is available in `/java/micronaut/backend` and docum
 * [Step 4: Api controller](/java/micronaut/doc/Step4.md)
 * [Step 5: Messages between microservices](/java/micronaut/doc/Step5.md)
 * [Step 6: Zipkin integration](/java/micronaut/doc/Step6.md) (In Progress)
+
+### Quarkus implementation
+
+coming soon.
+
+### Springboot implementation
+
+coming soon.
+
+## Compare frameworks
+
+### Docker images size
+
+coming soon.
