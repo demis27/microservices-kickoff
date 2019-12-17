@@ -38,7 +38,7 @@ $ cd java/micronaut
 $ mn create-federation \
 --build=maven \
 --lang=java \
---services=org.talend.kickoff.mn.api.api,org.talend.kickoff.mn.person.person,org.talend.kickoff.mn.common.common,org.talend.kickoff.mn.comicbook.comicbook \
+--services=org.demis27.kickoff.mn.api.api,org.demis27.kickoff.mn.person.person,org.demis27.kickoff.mn.common.common,org.demis27.kickoff.mn.comicbook.comicbook \
 --stacktrace \
 backend \
 --features graal-native-image,mongo-reactive,http-client
