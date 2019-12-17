@@ -4,11 +4,11 @@
 * [Use case](#use-case)
 * [Workshop steps](#workshop-steps)
 * [Implementations](#implementation)
-    * [Micronaut implementation](#micronaut-implementation)
-    * [Quarkus implementation](#quarkus-implementation)
-    * [Springboot implementation](#springboot-implementation)
+  * [Micronaut implementation](#micronaut-implementation)
+  * [Quarkus implementation](#quarkus-implementation)
+  * [Springboot implementation](#springboot-implementation)
 * [Compare frameworks](#compare-frameworks)
-    * [Docker images size](#docker-images-size)
+  * [Docker images size](#docker-images-size)
 
 ## Introduction
 
