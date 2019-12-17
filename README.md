@@ -1,15 +1,19 @@
 # microservices-kickoff
 
-Because I love played with new frameworks, and I want to share with you my explorations, I created with project to compare Java framework to make micro-services and serverless application.
-This project have two goals:
-* Give you a little workshop for each framework
-* Compare all java frameworks to do micro services and serverless application.
-
-The first framework tested is Micronaut https://micronaut.io/. For each framework you can play with a small workshop.
-
+* [Introduction](#introduction)
 * [Use case](#use-case)
 * [Workshop steps](#workshop-steps)
 * [Micronaut implementation](#micronaut-implementation)
+
+## Introduction
+
+Because I love played with new frameworks, and I want to share with you my explorations, I created this project to compare Java framework to make micro-services and serverless application.
+This project have two goals:
+
+* Give you a little workshop for each framework
+* Compare all java frameworks to do micro services and serverless application.
+
+The first framework tested is [Micronaut](https://micronaut.io/){:target="_blank"}. For each framework you can play with a small workshop.
 
 ## Use case
 
@@ -18,9 +22,11 @@ To test the frameworks I develop with them the same following use case. This use
   ![Use case](/doc/images/usecase.svg)
 
 ### API service
+
 In this use case, the user call by HTTP the API service endpoints that redirect calls to the right service (Person or Comicbook). For example to get all comicbooks we use the endpoint `GET /api/v1/comicbooks` redirected to the Comicbook service endpoint `GET /comicbook/v1/comicbooks`.
 
 ### Comicbook service
+
 The comicbook service manage a comicbook issue stored in mongoDB. Following, a example of a comicbook payload.
 
 ```json
@@ -46,7 +52,8 @@ The comicbook service manage a comicbook issue stored in mongoDB. Following, a e
 }
 ```
 
-### Person service  
+### Person service
+
 The person service manage a person stored in mongoDB. Person represent people who contributed in the creation of a comicbook. Following, a example of a person payload.
 
 ```json

@@ -2,4 +2,4 @@
 
 ## Step 6 - Zipkin Integration
 
-If you want to start this step, checkout the step6-init branch of the project.
+If you want to start this step, checkout the step6  -init branch of the project.
