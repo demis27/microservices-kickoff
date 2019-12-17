@@ -3,12 +3,12 @@ micronaut:
   application:
     name: api
   server:
-    port: 7000
+    port: ${API_PORT:7000}
   http:
     services:
       comicbook:
         urls:
-          - http://localhost:7001/
+          - ${COMICBOOK_URL:`http://localhost:7001/`}
       person:
         urls:
-          - http://localhost:7002/
+          - ${PERSON_URL:`http://localhost:7002/`}
