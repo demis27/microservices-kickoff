@@ -102,7 +102,7 @@ The micronaut implementation is available at `/java/micronaut/backend` and docum
 The quarkus implementation is available at `/java/quarkus/backend` and documentation for the micronaut workshop is available at `/java/quarkus/doc`.
 
 * [Step 0: Requirements](/java/quarkus/doc/Step0.md)
-* Step 1: Installation and project creation (coming soon)
+* [Step 1: Installation and project creation](/java/quarkus/doc/Step1.md) (In Progress)
 * Step 2: Pojo and repository (coming soon)
 * Step 3: Comicbook controller (coming soon)
 * Step 4: Api controller (coming soon)

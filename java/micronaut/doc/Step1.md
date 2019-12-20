@@ -1,5 +1,4 @@
-# Micronaut version of the comicbook application.
-
+# Micronaut version of the comicbook application
 
 ## Step 1 : Installation and project creation
 
@@ -88,7 +87,7 @@ And substratevm dependency was added by the feature graal-native-image:
     </dependency>
 ```
 
-### Build the project 
+### Build the project
 
 Build by Intellij or by maven:
 
@@ -102,24 +101,31 @@ $ mvn clean install
 Run a class Application (for example the Application in maven module api) or run in a shell:
 
 ```shell
-$ cd api
-$ java -jar target/api-0.1.jar
+$cd api
+$java -jar target/api-0.1.jar
 ```
+
 ### Build and run a native application
 
 Build a native image with GraalVM:
-* Use GraalVM as current JVM: 
-```shell 
-$ sdk use java 19.2.0-grl
+
+* Use GraalVM as current JVM:
+
+```shell
+sdk use java 19.2.0-grl
 ```
-* Install the GraalVM tool, native-image, that generate native image from a jar: 
+
+* Install the GraalVM tool, native-image, that generate native image from a jar:
+
 ```shell
-$ gu install native-image
-``` 
-* Create a native image: 
+gu install native-image
+```
+
+* Create a native image:
+
 ```shell
-$ native-image --no-server -cp target/api-0.1.jar
-``` 
+native-image --no-server -cp target/api-0.1.jar
+```
 
 if you have the following error:
 
@@ -129,12 +135,14 @@ Error: Use -H:+ReportExceptionStackTraces to print stacktrace of underlying exce
 Error: Image build request failed with exit status 1
 ```
 
-Add the library zlib: 
+Add the library zlib:
+
 ```shell
-$ sudo apt-get install zlib1g-dev
+sudo apt-get install zlib1g-dev
 ```
 
-Now you can run the application: 
+Now you can run the application:
+
 ```shell
-$ ./api
+./api
 ```
