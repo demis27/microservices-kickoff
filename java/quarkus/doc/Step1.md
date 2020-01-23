@@ -59,16 +59,9 @@ That build a native image in target folder. You can launch it with:
 microservices-kickoff/java/quarkus/backend/comicbook/target> ./comicbook-1.0-SNAPSHOT-runner
 ```
 
-if you have the following error:
+### Build docker image with the native image
 
 ```shell
-Error: Basic header file missing (<zlib.h>). Make sure headers are available on your system.
-Error: Use -H:+ReportExceptionStackTraces to print stacktrace of underlying exception
-Error: Image build request failed with exit status 1
+microservices-kickoff/java/quarkus/backend/comicbook> docker build -f src/main/docker/Dockerfile.native -t kickoff-quarkus/comicbook .
 ```
 
-Add the library zlib:
-
-```shell
-sudo apt-get install zlib1g-dev
-```
